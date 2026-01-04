@@ -39,14 +39,13 @@ Enzyme = "7da242da-08ed-463a-9acd-ee780be4f1d9"
 NonlinearSolveBase = "be0214bd-f91f-a760-ac4e-3421ce2b2da0"
 
 [compat]
-# Updated to allow latest versions and resolve dependency conflicts
-AdvancedHMC = "^0.8"  # Removed 0.7 constraint to allow latest
+AdvancedHMC = "^0.8"
 CategoricalArrays = "^1.0.0, ^0.10.8"
 ComponentArrays = "^0.15.14"
 CSV = "0.10.15"
 DataFrames = "^1.6"
 DataInterpolations = "^8.6.0, 4.6.0 - 6.6"
-DiffEqFlux = "^4.3"  # Allow latest 4.x versions
+DiffEqFlux = "^4.3"
 Distributions = "^0.25"
 Enzyme = "^0.13.50"
 FiniteDiff = "^2.22"
@@ -58,17 +57,17 @@ MCMCChains = "^6.0, ^7.5.0"
 NLsolve = "^4.5"
 NonlinearSolveBase = "1.5"
 Optim = "^1.9"
-Optimization = "^5.0"  # Allow latest 5.x versions (removed 3.19.3-4.1 constraint)
-OptimizationOptimJL = "^0.4"  # Allow latest 0.4.x
-OptimizationOptimisers = "^0.3"  # Allow latest 0.3.x
-OrdinaryDiffEq = "^6"  # Allow latest 6.x versions
+Optimization = "^5.0"
+OptimizationOptimJL = "^0.4"
+OptimizationOptimisers = "^0.3"
+OrdinaryDiffEq = "^6"
 Plots = "^1.40"
 RegularizationTools = "^0.6.0"
 Roots = "^2.1"
 StatsBase = "^0.34"
-StochasticDiffEq = "^6"  # Allow latest 6.x versions
+StochasticDiffEq = "^6"
 Zygote = "^0.6, ^0.7.0"
-julia = "1.12"  # Updated to match CDCS project
+julia = "1.12"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
