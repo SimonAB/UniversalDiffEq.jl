@@ -1,6 +1,6 @@
 name = "UniversalDiffEq"
 uuid = "791b002b-939e-4b08-8060-ecf413fcb155"
-version = "1.1.6"
+version = "1.2.1"
 authors = ["Jack Buckner <bucknejo@oregonstate.edu>"]
 
 [deps]
