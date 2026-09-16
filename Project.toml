@@ -40,7 +40,7 @@ NonlinearSolveBase = "be0214bd-f91f-a760-ac4e-3421ce2b2da0"
 
 [compat]
 AdvancedHMC = "^0.8"
-CSV = "0.10.15"
+CSV = "0.10.15, 1"
 CategoricalArrays = "^1.0.0, ^0.10.8"
 ComponentArrays = "^0.15.14"
 DataFrames = "^1.6"
