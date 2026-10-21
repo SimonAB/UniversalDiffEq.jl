@@ -20,6 +20,10 @@ To install and load UniversalDiffEq.jl, open Julia and type the following code:
 using UniversalDiffEq
 ```
 
+Plotting is optional in version 2. Install `Plots` in the same environment and
+load it with `using Plots` to activate the plotting methods used below.
+`LotkaVolterra()` returns a data frame; plotting constructors are separate.
+
 To access the latest version under development with the newest features use:
 
 ```
@@ -38,9 +42,9 @@ As a simple example to get started on UniversalDiffEq.jl, we fit a UDE model to 
 ```
 
 ```julia
-using UniversalDiffEq, DataFrames
+using UniversalDiffEq, DataFrames, Plots
 
-data,plt = UniversalDiffEq.LotkaVolterra() # Generate synthetic predator prey data
+data = UniversalDiffEq.LotkaVolterra() # Generate synthetic predator-prey data
 
 # Build neural network
 NN,params = UniversalDiffEq.SimpleNeuralNetwork(2,1)

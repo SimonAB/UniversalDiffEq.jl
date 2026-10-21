@@ -1,15 +1,15 @@
-push!(LOAD_PATH,"../src/")
-using Pkg; Pkg.add("DataFrames")
-using Documenter, UniversalDiffEq, DataFrames
+using Documenter, UniversalDiffEq, DataFrames, Plots
+
+const UniversalDiffEqPlots = Base.get_extension(UniversalDiffEq, :UniversalDiffEqPlots)
 
 makedocs(
     sitename="UniversalDiffEq.jl",
-    modules  = [UniversalDiffEq],
+    modules  = [UniversalDiffEq, UniversalDiffEqPlots],
     format   = Documenter.HTML(; prettyurls = get(ENV, "CI", nothing) == "true"),
     pages = ["index.md","Models.md","TrainingRoutines.md","ModelTesting.md","CrossValidation.md","NutsAndBolts.md","MultipleTimeSeries.md","modelanalysis.md","examples.md","API.md"]
 )
 
 deploydocs(
-    repo = "github.com/Jack-H-Buckner/UniversalDiffEq.jl.git",
+    repo = "github.com/SimonAB/UniversalDiffEq.jl.git",
 )
 

@@ -34,11 +34,11 @@ We can train the neural network ``NN`` and estimate the biological parameters ``
 UniversalDiffEq.jl provides functions for four stages of analysis: model building, training, performance evaluation, and analysis. The package provides three main model constructor functions: `CustomDerivatives`, `CustomDifferences`, and `NODE`. `CustomDerivatives`, builds a universal differential equation based on a user-defined function that describes the right-hand side of a differential equation. `CustomDifferences` provides the same functionality for discrete-time models.`NODE` builds a neural ordinary differential equation and only requires a data set from the user (although it has additional key work arguments). Each of these functions has an equivalent with the prefix “Multi” (e.g. `MultiCustomDerivatives`) to build models for data sets that include multiple time series with similar dynamics. The following block of code shows how to build a UDE model that represents predatory prey interactions using the `CustomDerivatives` function.
 
 ```julia
-using UniversalDiffEq, DataFrames
+using UniversalDiffEq, DataFrames, Plots
 
 
 # Generate synthetic predator-prey data
-data,plt = UniversalDiffEq.LotkaVolterra() 
+data = UniversalDiffEq.LotkaVolterra()
 
 
 # Build feed-forward neural network with two inputs and one output

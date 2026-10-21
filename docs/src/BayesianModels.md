@@ -15,9 +15,9 @@ UniversalDiffEq.BayesianCustomDerivatives(data::DataFrame,X,derivs!::Function,in
 Instead of training Bayesian UDEs using the `gradient_descent!` and `BFGS!` functions, we use the algorithms for Bayesian optimization. We repeat the [tutorial](Models.md) for regular UDEs but create a `BayesianUDE` using `BayesianCustomDerivatives` instead of `CustomDerivatives`.
 
 ```julia
-using UniversalDiffEq, DataFrames, Lux, Random
+using UniversalDiffEq, DataFrames, Lux, Random, Plots
 
-data, plt = LotkaVolterra()
+data = LotkaVolterra()
 dims_in = 2
 hidden_units = 10
 nonlinearity = tanh
