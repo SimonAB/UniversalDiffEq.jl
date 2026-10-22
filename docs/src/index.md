@@ -34,7 +34,7 @@ We can train the neural network ``NN`` and estimate the biological parameters ``
 UniversalDiffEq.jl provides functions for four stages of analysis: model building, training, performance evaluation, and analysis. The package provides three main model constructor functions: `CustomDerivatives`, `CustomDifferences`, and `NODE`. `CustomDerivatives`, builds a universal differential equation based on a user-defined function that describes the right-hand side of a differential equation. `CustomDifferences` provides the same functionality for discrete-time models.`NODE` builds a neural ordinary differential equation and only requires a data set from the user (although it has additional key work arguments). Each of these functions has an equivalent with the prefix “Multi” (e.g. `MultiCustomDerivatives`) to build models for data sets that include multiple time series with similar dynamics. The following block of code shows how to build a UDE model that represents predatory prey interactions using the `CustomDerivatives` function.
 
 ```julia
-using UniversalDiffEq, DataFrames, Plots
+using UniversalDiffEq, DataFrames
 
 
 # Generate synthetic predator-prey data
@@ -81,6 +81,15 @@ train!(model;  loss_function = "derivative matching",
               loss_options = (d = 10, ),
               optim_options = (maxiter = 1000, step_size = 0.01))
 ```   
+
+Plotting is optional and requires the `UniversalDiffEqPlots` extension, activated
+by installing and loading `Plots` in the same environment. The package has no
+Makie plotting extension at present. If you use the plotting methods below,
+load `Plots` before calling them:
+
+```julia
+using Plots
+```
 
 Two primary functions are provided to test the performance of the model on in sample data, `plot_predictions` and `plot_state_estimates.` Care should be taken when using these functions because their interpretation depends on the training procedure used to fit the models. Each training does two things: 1) updates the parameters of the UDE model to match the dynamics observed in the data set, and 2) estimates the value of the state variables, assuming the observation in the data set includes some observation error. The plot state estimates function compares the estimated state variables to the observations in the data set. In contrast, the plot predictions function compares the changes observed in the estimated state variables to those predicted by the UDE model.  
 

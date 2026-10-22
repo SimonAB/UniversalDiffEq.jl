@@ -20,9 +20,19 @@ To install and load UniversalDiffEq.jl, open Julia and type the following code:
 using UniversalDiffEq
 ```
 
-Plotting is optional in version 2. Install `Plots` in the same environment and
-load it with `using Plots` to activate the plotting methods used below.
-`LotkaVolterra()` returns a data frame; plotting constructors are separate.
+Version 2 supports Julia 1.11, 1.12, and 1.13.
+
+Plotting is optional in version 2. The core package does not install a plotting
+backend. Its plotting methods are provided by the `UniversalDiffEqPlots`
+extension, which is activated when `Plots` is installed in the same environment
+and loaded with `using Plots`. Install `Plots` only if you need these methods;
+the package currently has no Makie plotting extension. `LotkaVolterra()` returns
+a data frame, and plotting constructors are separate.
+
+```julia
+using Pkg
+Pkg.add("Plots") # optional plotting backend
+```
 
 To access the latest version under development with the newest features use:
 
@@ -42,7 +52,7 @@ As a simple example to get started on UniversalDiffEq.jl, we fit a UDE model to 
 ```
 
 ```julia
-using UniversalDiffEq, DataFrames, Plots
+using UniversalDiffEq, DataFrames
 
 data = UniversalDiffEq.LotkaVolterra() # Generate synthetic predator-prey data
 
@@ -77,6 +87,7 @@ train!(model;  loss_function = "derivative matching",
                optim_options = (maxiter = 1000, step_size = 0.01))
 
 # Compare the estimated values of the state variables to the data set
+using Plots # optional; activates UniversalDiffEqPlots
 plot_state_estimates(model)
 ```
 
